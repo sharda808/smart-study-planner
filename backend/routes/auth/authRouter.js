@@ -8,7 +8,7 @@ const bcrypt = require("bcryptjs");
 const {body, validationResult} = require("express-validator");
 const SECRET_KEY = "studyplanner_secret";
 
-// AUTH ROUTES 
+
 
 // Signup
 router.post("/signup",
@@ -80,9 +80,7 @@ router.post("/login",
         message:"Invalid email or password,"
       });
     }
-
     
-
     const token = jwt.sign({ id: user._id }, SECRET_KEY, { expiresIn: "1d" });
     res.json({
       success: true,
@@ -94,8 +92,6 @@ router.post("/login",
     res.status(500).json({ success: false, message: "Server error" });
   }
 });
-
-// TASK ROUTES
 
 // Get tasks
 router.get("/tasks", verifyToken, async (req, res) => {

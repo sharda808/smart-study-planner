@@ -19,10 +19,10 @@ type:mongoose.Schema.Types.ObjectId,
 ref:"User",
 required:true,
   },
-  createdAt:{
-    type:Date,
-     default: null,
-    },
+  // createdAt:{
+  //   type:Date,
+  //    default: null,
+  //   },
  dueDate:{
   type:Date,
  },

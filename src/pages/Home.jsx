@@ -1,6 +1,7 @@
 import React from "react";
 import {BarChart3, CheckCircle, Clock, TrendingUp} from "lucide-react"
 import { Link } from "react-router-dom";
+import MotivationBanner from "../components/MotivationBanner";
 const Home = () => {
   return (
  <>
@@ -8,8 +9,13 @@ const Home = () => {
 <div className="text-center mb-16">
 <BarChart3 size = {64} className=   "text-blue-600 mb-6 mx-auto" />
 
-<h1 className="text-gray-600 mb-4 text-4xl font-bold">Welcome to Smart Study Planner</h1>
-<p className="text-gray-600 max-w-2xl mx-auto tetx-lg">Plan your study tasks, track progress, and analyze your performance with simple and visual analytics.</p>
+<h1 className="text-gray-600 mb-6 text-4xl font-bold">Welcome to Smart Study Planner</h1>
+<div className="mt-4">
+<MotivationBanner />
+</div>
+<p className="mt-12 text-gray-600 max-w-2xl mx-auto text-lg ">Plan your study tasks, track progress, and analyze your performance with simple and visual analytics.</p>
+
+
 <div className="flex flex-row  gap-4  justify-center  mt-8">
 <Link
 to="/signup"

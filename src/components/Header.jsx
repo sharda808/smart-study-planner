@@ -4,19 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 const Header = () => {
   const navigate = useNavigate();
   const [token, setToken] = useState(localStorage.getItem("token"));
-  
-
- 
-
-  // Sync token with localStorage
-  useEffect(() => {
+     useEffect(() => {
     const handleStorageChange = () => {
       setToken(localStorage.getItem("token"));
     };
     window.addEventListener("storage", handleStorageChange);
     return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
-
   const handleLogout = () => { 
     localStorage.removeItem("token");
     setToken(null);

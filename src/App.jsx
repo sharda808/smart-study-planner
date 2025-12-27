@@ -7,6 +7,7 @@ import Tasks from './pages/Tasks'
 import Signup from './components/Signup'
 import Home from './pages/Home'
 import Header from './components/Header'
+import FocusSession from './pages/FocusSession'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
  <Route path = "/signup" element ={<Signup />} />   
 <Route path="/dashboard" element = {<Dashboard />} />
 <Route path = "/tasks" element = {<Tasks/>} />
+
 </Routes>
 </>
 

@@ -18,7 +18,7 @@ const Tasks = () => {
   const [priority, setPriority] = useState("medium");
   const [tasks, setTasks] = useState([]);
   const [showForm, setShowForm] = useState(false);
-  const [dueDate, setDueDate] = useState("")
+  const [dueDate, setDueDate] = useState("");
   const[searchTerm, setSearchTerm] = useState("");
   const[sortBy, setSortBy] = useState("newest");
   const [streak, setStreak] = useState(0);
@@ -47,7 +47,7 @@ tasks.length > 0 && tasks.every((task) => task.status === "completed");
   useEffect(() => {
     fetchTasks();
     fetchStreak();
-    // Optional: auto refresh when page/tab is focused
+  
     const handleFocus = () => fetchTasks();
     window.addEventListener("focus", handleFocus);
     return () => window.removeEventListener("focus", handleFocus);
@@ -69,9 +69,7 @@ tasks.length > 0 && tasks.every((task) => task.status === "completed");
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-        body: JSON.stringify({ title: title.trim(), priority,
-          dueDate: dueDate || null,
-      }),
+        body: JSON.stringify({ title: title.trim(), priority, dueDate: dueDate || null }),
       });
 
       const data = await res.json();
@@ -79,8 +77,9 @@ tasks.length > 0 && tasks.every((task) => task.status === "completed");
       if (data.success) {
         setTitle("");
         setPriority("medium");
+        setDueDate("");
         setShowForm(false);
-        fetchTasks(); // refresh tasks after add
+        fetchTasks(); 
       } else {
         alert(data.message || "Failed to add task");
       }
@@ -117,7 +116,7 @@ const res = await fetch(`http://localhost:5000/tasks/${id}`, {
     console.error("Error deleting task",error)
   }
   };
-  // Handle completing a task
+
   const completeTask = async (id) => {
     if (!id) return console.error("Task ID missing!");
 
@@ -235,8 +234,13 @@ console.error("Error completing task:", error);
               <option value="medium">Medium Priority</option>
               <option value="high">High Priority</option>
             </select>
-            <div>
-            </div>
+             <input
+      type="date"
+      value={dueDate}
+      onChange={(e) => setDueDate(e.target.value)}
+      className="w-full border p-2 rounded mb-4"
+      required
+    />
           <div className="flex gap-3">
   <button
     type="submit"
@@ -262,17 +266,7 @@ console.error("Error completing task:", error);
           <p className="text-sm text-gray-400 dark:text-gray-400">Add tasks or adjust your search</p>
           </div>
         )}
-        {/* No Tasks Message */}
-        {/* {tasks.length === 0 && (
-          <div className="bg-white p-10 rounded-xl shadow text-center">
-            <p>No tasks added yet</p>
-            <p className="text-sm text-gray-400">
-              Start by adding your first study task
-            </p>
-          </div>
-        )} */}
 
-        {/* Task List */}
         {allCompleted && (
           <div className="mb-6 p-4 bg-green-100 text-green-700 rounded  text-center font-medium flex items-center justify-center gap-2 ">
         <Trophy className="w-6 h-6 text-yellow-400" />

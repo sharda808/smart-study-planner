@@ -2,25 +2,30 @@
 const express = require("express");
 const router = express.Router();
 const Task = require("../models/Task");
-const User = require("../models/User"); // ✅ FIX
+const User = require("../models/User"); 
 const verifyToken = require("../middleware/VerifyToken");
 const mongoose = require("mongoose");
 
-/* GET TASKS */
+
 router.get("/", verifyToken, async (req, res) => {
   const tasks = await Task.find({ userId: req.user.id });
   res.json({ success: true, tasks });
 });
 
-/* ADD TASK */
+
 router.post("/", verifyToken, async (req, res) => {
-  const { title, priority } = req.body;
-  const task = new Task({ title, priority, userId: req.user.id });
+  const { title, priority, dueDate } = req.body;
+  const task = new Task({ 
+    title, 
+    priority, 
+    userId: req.user.id, 
+    dueDate: dueDate ? new Date(dueDate) : null,
+  });
   await task.save();
   res.json({ success: true, task });
 });
 
-/* DELETE TASK */
+
 router.delete("/:id", verifyToken, async (req, res) => {
   const task = await Task.findOneAndDelete({
     _id: req.params.id,
@@ -34,10 +39,10 @@ router.delete("/:id", verifyToken, async (req, res) => {
   res.json({ success: true, message: "Task deleted" });
 });
 
-/* COMPLETE TASK + STREAK */
+
 router.put("/:id/complete", verifyToken, async (req, res) => {
   try {
-    const taskId = req.params.id; // ✅ FIX
+    const taskId = req.params.id;
 
     if (!mongoose.Types.ObjectId.isValid(taskId)) {
       return res.status(400).json({ success: false, message: "Invalid Task ID" });
@@ -59,7 +64,7 @@ router.put("/:id/complete", verifyToken, async (req, res) => {
     task.status = "completed";
     await task.save();
 
-    // 🔥 STREAK LOGIC
+  
     const user = await User.findById(req.user.id);
 
     const today = new Date();

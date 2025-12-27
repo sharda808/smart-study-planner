@@ -1,0 +1,9 @@
+.gradient-bg {
+  background: linear-gradient(to right, #60a5fa, #a855f7);
+}
+.gradient-bg-1 {
+  background: linear-gradient(to right, #4ADE80, #10B981);
+}
+.gradient-bg-2 {
+  background: linear-gradient(to right, #3B82f6, #6366F1);
+}

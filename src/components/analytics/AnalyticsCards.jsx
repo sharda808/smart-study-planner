@@ -40,12 +40,3 @@ className={`rounded-xl shadow-sm border p-5 flex  flex-col gap-2 ${card.bg}`}
 );
 };
 export default AnalyticsCards;
-// const AnalyticsCards = ({title,value,color}) => {
-// return (
-//   <div className="bg-white rounded-xl shadow-md p-5 border-1-4" style = {{borderColor:color}}>
-// <p className="tetx-sm text-gray-500">{title}</p>
-// <p className="text-3xl font-bold mt-2" style={{color}}>{value}</p>
-//   </div>
-// );
-// }
-// export default AnalyticsCards;
