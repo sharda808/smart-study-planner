@@ -22,7 +22,7 @@ stay focused, and build daily study discipline.
 -  Smart productivity tips
 
 
-## 🛠️ Tech Stack
+## ⚙️ Tech Stack
 - *Frontend:* React (Vite), Tailwind CSS, Chart.js  
 - *Backend:* Node.js, Express.js, MongoDB  
 - *Auth:* JWT, Bcrypt
