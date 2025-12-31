@@ -1,16 +1,40 @@
-# React + Vite
+# 📚 Smart Study Planner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An intelligent study planner that helps students stay consistent, focused,
+and productive using analytics, streaks, and focus sessions.
 
-Currently, two official plugins are available:
+## ❓ Problem
+Students struggle with study inconsistency, task overload,
+and lack of focus. Traditional to-do apps don’t show
+how well students are actually progressing.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 💡 Solution
+Smart Study Planner combines task management with analytics
+and habit-building features to help students plan better,
+stay focused, and build daily study discipline.
 
-## React Compiler
+## ✨ Key Features
+-  Secure Login & Signup (JWT)
+-  Smart Task Management (priority, due dates)
+-  Analytics Dashboard (completed vs pending)
+-  Daily Streak Tracking
+-  Focus Mode for distraction-free study
+-  Smart productivity tips
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
+- *Frontend:* React (Vite), Tailwind CSS, Chart.js  
+- *Backend:* Node.js, Express.js, MongoDB  
+- *Auth:* JWT, Bcrypt
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ▶️ Demo
+-  Demo Video: https://drive.google.com/file/d/17FSuBbdBxIluOmwKpa9iM6toZ3jhj-Oh/view?usp=sharing
+-  Pitch Video: https://drive.google.com/file/d/1huob-wklskDTDq2tk-8NTjNuR9PJTOV8/view?usp=sharing
+
+##  Impact
+Built by a student, for students —  
+helping learners stay consistent, focused, and motivated.
+
+## 👩‍💻 Author
+*Sharda Kumari*  
+Student Developer | B.Tech (ECE)
